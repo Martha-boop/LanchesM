@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LanchesM.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220324175337_MigracaoInicial")]
-    partial class MigracaoInicial
+    [Migration("20220324185008_MigrationInicial")]
+    partial class MigrationInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,13 +59,13 @@ namespace LanchesM.Migrations
 
                     b.Property<string>("DescrisaoCurta")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("DescrisaoDetalhada")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("EmEstoque")
                         .HasColumnType("bit");

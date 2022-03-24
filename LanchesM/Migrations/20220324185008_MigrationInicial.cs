@@ -4,7 +4,7 @@
 
 namespace LanchesM.Migrations
 {
-    public partial class MigracaoInicial : Migration
+    public partial class MigrationInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,8 +29,8 @@ namespace LanchesM.Migrations
                     LancheId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    DescrisaoCurta = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    DescrisaoDetalhada = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    DescrisaoCurta = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    DescrisaoDetalhada = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Preco = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     ImagemUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     ImagemThumbnailUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),

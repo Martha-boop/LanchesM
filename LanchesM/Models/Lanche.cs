@@ -15,14 +15,14 @@ namespace LanchesM.Models
 
         [Required(ErrorMessage = "A descrição do lanche deve ser informada")]
         [Display(Name = "Descrição do Lanche")]
-        [StringLength(20,  ErrorMessage = "A descrição deve ter no minimo {1} caracteres")]
+        [MinLength(20,  ErrorMessage = "A descrição deve ter no minimo {1} caracteres")]
         [MaxLength(200, ErrorMessage ="A descrição pode exeder {1} caracteres")]
         public string DescrisaoCurta { get; set; }
 
 
         [Required(ErrorMessage = "A descrição detalhada do lanche deve ser informada")]
         [Display(Name = "Descrição detalhada do Lanche")]
-        [StringLength(20, ErrorMessage = "A descrição detalhada deve ter no minimo {1} caracteres")]
+        [MinLength(20, ErrorMessage = "A descrição detalhada deve ter no minimo {1} caracteres")]
         [MaxLength(200, ErrorMessage = "A descrição detalhada pode exeder {1} caracteres")]
         public string DescrisaoDetalhada { get; set; }
 
