@@ -1,4 +1,6 @@
 ﻿using LanchesM.Context;
+using LanchesM.Repositories;
+using LanchesM.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace LanchesM
@@ -29,8 +31,8 @@ namespace LanchesM
             //fornece uma instancia de HttpContextAcessor
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-           // services.AddTransient<ILancheRepository, LancheRepository>();
-           // services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+            services.AddTransient<ILancheRepository, LancheRepository>();
+            services.AddTransient<ICategoriaRepository, CategoriaRepository>();
           //  services.AddTransient<IPedidoRepository, PedidoRepository>();
 
           //  services.AddScoped<RelatorioVendasService>();
