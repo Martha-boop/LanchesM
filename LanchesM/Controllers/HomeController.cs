@@ -15,6 +15,7 @@ namespace LanchesM.Controllers
 
         public IActionResult Index()
         {
+            TempData["Nome"] = "Marta Neris";
             return View();
         }
 
