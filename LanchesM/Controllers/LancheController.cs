@@ -1,4 +1,5 @@
 ﻿using LanchesM.Repositories.Interfaces;
+using LanchesM.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LanchesM.Controllers
@@ -15,16 +16,21 @@ namespace LanchesM.Controllers
         public IActionResult List()
 
         {
-            ViewData["Titulo"] = "Todos os Lanches";
+           // ViewData["Titulo"] = "Todos os Lanches";
             ViewData["Data"] = DateTime.Now;
 
 
-            var lanches = _lancheRepository.Lanches;
-            var totalLanches = lanches.Count();
+            // var lanches = _lancheRepository.Lanches;
+            // var totalLanches = lanches.Count();
 
-            ViewBag.Total = "Total de Lanches";
-            ViewBag.TotalLanches = totalLanches;
-            return View(lanches);
+            var lanchesListViewModel = new LancheListViewModel();
+            lanchesListViewModel.Lanches = _lancheRepository.Lanches;
+            lanchesListViewModel.CategoriaAtual = "Categoria Atual";
+            return View(lanchesListViewModel);
+
+           // ViewBag.Total = "Total de Lanches";
+            //ViewBag.TotalLanches = totalLanches;
+           // return View(lanches);
         }
     }
 }

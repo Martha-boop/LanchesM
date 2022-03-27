@@ -1,4 +1,5 @@
 ﻿using LanchesM.Context;
+using LanchesM.Models;
 using LanchesM.Repositories;
 using LanchesM.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,7 @@ namespace LanchesM
 
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Home/AccessDenied");
 
-          //  services.Configure<ConfigurationImagens>(Configuration.GetSection("ConfigurationPastaImagens"));
+           // services.Configure<ConfigurationImagens>(Configuration.GetSection("ConfigurationPastaImagens"));
 
             //fornece uma instancia de HttpContextAcessor
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -41,7 +42,7 @@ namespace LanchesM
             //cria um objeto Scoped, ou seja um objeto que esta associado a requisição
             //isso significa que se duas pessoas solicitarem o objeto CarrinhoCompra ao  mesmo tempo
             //elas vão obter instâncias diferentes
-           // services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
+          //  services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
 
             services.AddControllersWithViews();
           //  services.AddPaging(options => {
