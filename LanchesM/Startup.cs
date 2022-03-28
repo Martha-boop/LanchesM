@@ -34,7 +34,7 @@ namespace LanchesM
 
             services.AddTransient<ILancheRepository, LancheRepository>();
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
-          //  services.AddTransient<IPedidoRepository, PedidoRepository>();
+            services.AddTransient<IPedidoRepository, PedidoRepository>();
 
           //  services.AddScoped<RelatorioVendasService>();
           //  services.AddScoped<GraficoVendasService>();

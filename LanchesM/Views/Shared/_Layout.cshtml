@@ -32,7 +32,11 @@
                             <li class="nav-item">
                             <a class="nav-link text-ligth" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>
                         </li>
-                           
+                           <form class="navbar-form navbar-right" asp-controller="Lanche" asp-action="Search" method="get">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Procurar produto" name="searchString" value="@ViewData["searchString"]">
+                      </div>
+                    </form>
                         
                     </ul>
                 </div>
