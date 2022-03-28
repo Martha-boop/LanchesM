@@ -11,7 +11,7 @@ namespace LanchesM.TagHelpers
         {
             output.TagName = "a";
             output.Attributes.SetAttribute("href", "mailto:" + Endereco);
-            output.Content.SetContent(Endereco);
+            output.Content.SetContent(Conteudo);
         }
     }
 }
