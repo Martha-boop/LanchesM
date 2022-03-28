@@ -37,7 +37,7 @@ namespace LanchesM.Controllers
             {
                 _carrinhoCompra.AdicionarAoCarrinho(lancheSelecionado);
             }
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
         }
         public IActionResult RemoverItemNoCarrinhoCompra(int lancheId)
         {
