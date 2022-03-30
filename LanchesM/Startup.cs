@@ -2,6 +2,7 @@
 using LanchesM.Models;
 using LanchesM.Repositories;
 using LanchesM.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace LanchesM
@@ -21,9 +22,9 @@ namespace LanchesM
             services.AddDbContext<AppDbContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-         //   services.AddIdentity<IdentityUser, IdentityRole>()
-         //        .AddEntityFrameworkStores<AppDbContext>()
-             //    .AddDefaultTokenProviders();
+           services.AddIdentity<IdentityUser, IdentityRole>()
+                 .AddEntityFrameworkStores<AppDbContext>()
+                 .AddDefaultTokenProviders();
 
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Home/AccessDenied");
 
