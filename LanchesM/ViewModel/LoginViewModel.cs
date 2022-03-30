@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LanchesM.Models
+namespace LanchesM.ViewModel
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage ="Informe o nome")]
-        [Display(Name ="Usuario")]
+
+        [Required(ErrorMessage = "Informe o nome")]
+        [Display(Name = "Usuario")]
         public string UserName { get; set; }
 
 

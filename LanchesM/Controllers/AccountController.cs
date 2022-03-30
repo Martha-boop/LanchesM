@@ -1,4 +1,5 @@
 ﻿using LanchesM.Models;
+using LanchesM.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,18 +8,20 @@ namespace LanchesM.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _sgnInManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> sgnInManager)
+        public AccountController(UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
-            _sgnInManager = sgnInManager;
+            _signInManager = signInManager;
         }
+
         public IActionResult Login(string returnUrl)
         {
-            return View( new LoginViewModel()
+            return View(new LoginViewModel()
             {
-              ReturnUrl = returnUrl
+                ReturnUrl = returnUrl
             });
         }
 
@@ -32,7 +35,7 @@ namespace LanchesM.Controllers
 
             if (user != null)
             {
-                var result = await _sgnInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
+                var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
                 if (result.Succeeded)
                 {
                     if (string.IsNullOrEmpty(loginVM.ReturnUrl))
@@ -59,11 +62,7 @@ namespace LanchesM.Controllers
                 var user = new IdentityUser { UserName = registroVM.UserName };
                 var result = await _userManager.CreateAsync(user, registroVM.Password);
 
-
-                if (result.Succeeded) 
-
-
-
+                if (result.Succeeded)
                 {
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Login", "Account");
@@ -75,13 +74,6 @@ namespace LanchesM.Controllers
             }
             return View(registroVM);
         }
-        [HttpPost]
-        public async Task<IActionResult> Logout()
-        {
-            HttpContext.Session.Clear();
-            HttpContext.User = null;
-            await _sgnInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
-        }
+
     }
 }

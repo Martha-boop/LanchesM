@@ -4,6 +4,7 @@ using LanchesM.Repositories;
 using LanchesM.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace LanchesM
 {
@@ -25,6 +26,21 @@ namespace LanchesM
            services.AddIdentity<IdentityUser, IdentityRole>()
                  .AddEntityFrameworkStores<AppDbContext>()
                  .AddDefaultTokenProviders();
+
+
+
+            // Codigo para fazer uma senha mais fraca.
+           // services.Configure<IdentityOptions>(options =>
+           //    {
+           //        options.Password.RequireDigit = false;
+           //        options.Password.RequireLowercase = false;
+           //        options.Password.RequireNonAlphanumeric = false;
+          //         options.Password.RequireLowercase = false;
+           //        options.Password.RequiredLength = 3;
+          //         options.Password.RequiredUniqueChars = 1;
+
+          //     });
+                
 
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Home/AccessDenied");
 
